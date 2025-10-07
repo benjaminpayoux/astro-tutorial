@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Welcome to my blog"
 pubDate: 2025-10-07
 description: "This is the first post on my blog. It serves as an introduction on who I am, what I am currently doing and what I want to do next."
@@ -8,10 +9,6 @@ image:
   alt: "Astro logo blablabla"
 tags: ["astro", "blogging", "learning in public"]
 ---
-
-# Welcome to my blog
-
-Published on: 2025-10-07
 
 This is the first post on my blog. It serves as an introduction on who I am, what I am currently doing and what I want to do next.
 

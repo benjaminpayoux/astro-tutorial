@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Why Astro is Lightning Fast"
 pubDate: 2025-01-20
 description: "Exploring the performance advantages of Astro framework and how it achieves such impressive speed."

@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Understanding Recursive Functions"
 pubDate: 2025-01-15
 description: "A deep dive into recursive functions, their benefits, and when to use them in programming."

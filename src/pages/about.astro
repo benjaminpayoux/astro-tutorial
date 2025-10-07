@@ -1,7 +1,5 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About me";
 
@@ -33,48 +31,35 @@ const finished = false;
 const goal = 3;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontSize }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
+<BaseLayout>
+  {happy && <p>Today, I am happy</p>}
 
-      .skill {
-        color: var(--skillColor);
-        font-size: var(--fontSize);
-        font-weight: semibold;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
+  <p>
+    Hey! I'm {identity.firstName}, a {identity.occupation} living in {
+      identity.country
+    }. I am currently available for work using the following technologies:
+  </p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
 
-    {happy && <p>Today, I am happy</p>}
+  <p>When I am not coding, I like to:</p>
+  <ul>
+    <li>{identity.hobbies[1]}</li>
+    <li>{identity.hobbies[2]}</li>
+    <li>{identity.hobbies[3]}</li>
+  </ul>
+</BaseLayout>
 
-    <p>
-      Hey! I'm {identity.firstName}, a {identity.occupation} living in {
-        identity.country
-      }. I am currently available for work using the following technologies:
-    </p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+<style is:global define:vars={{ skillColor, fontSize }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
 
-    <p>When I am not coding, I like to:</p>
-    <ul>
-      <li>{identity.hobbies[1]}</li>
-      <li>{identity.hobbies[2]}</li>
-      <li>{identity.hobbies[3]}</li>
-    </ul>
-    <Footer />
-    <script src="../scripts/menu.js"></script>
-  </body>
-</html>
+  .skill {
+    color: var(--skillColor);
+    font-size: var(--fontSize);
+    font-weight: semibold;
+  }
+</style>
