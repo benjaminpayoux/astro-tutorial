@@ -1,0 +1,34 @@
+---
+import Social from "./Social.astro";
+
+const currentYear = new Date().getFullYear();
+const platform = "github";
+const username = "benjaminpayoux";
+---
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  <p>
+    My github page is <Social platform={platform} username={username} />
+  </p>
+  <p>
+    You can also find me on <Social
+      platform="linkedin"
+      username="in/benjamin-payoux"
+    />
+  </p>
+
+  <div class="social-links">
+    <Social platform={platform} username={username} />
+    <Social platform="linkedin" username="in/benjamin-payoux" />
+  </div>
+
+  <p>Copyright {currentYear}</p>
+</footer>
