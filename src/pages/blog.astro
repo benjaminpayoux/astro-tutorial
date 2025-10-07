@@ -1,13 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 
 const pageTitle = "My Posts";
+
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true })
+);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <ul>
-    <li><a href="/posts/post-1">Welcome to my blog</a></li>
-    <li><a href="/posts/post-2">Understanding Recursive Functions</a></li>
-    <li><a href="/posts/post-3">Why Astro is Lightning Fast</a></li>
+    {
+      allPosts.map((post: any) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
   </ul>
 </BaseLayout>
