@@ -1,20 +1,78 @@
 ---
+import "../styles/global.css";
 
+const pageTitle = "About me";
+
+const identity = {
+  firstName: "Benjamin",
+  country: "France",
+  occupation: "Software Engineer",
+  hobbies: ["Coding", "Make cookies", "Train on the piano", "Play video games"],
+};
+
+const skills = [
+  "Node.js",
+  "TypeScript",
+  "Laravel",
+  "React",
+  "Vue.js",
+  "Astro",
+  "Tailwind CSS",
+  "Docker",
+  "Kubernetes",
+  "Git",
+];
+
+const skillColor = "crimson";
+const fontSize = "2rem";
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-        <a href="/about">About</a>
-		<h1>About page</h1>
-        <p>Hey! I'm Ben, a French developer. I am currently available for work.</p>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontSize }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .skill {
+        color: var(--skillColor);
+        font-size: var(--fontSize);
+        font-weight: semibold;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <h1>{pageTitle}</h1>
+
+    {happy && <p>Today, I am happy</p>}
+
+    <p>
+      Hey! I'm {identity.firstName}, a {identity.occupation} living in {
+        identity.country
+      }. I am currently available for work using the following technologies:
+    </p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    <p>When I am not coding, I like to:</p>
+    <ul>
+      <li>{identity.hobbies[1]}</li>
+      <li>{identity.hobbies[2]}</li>
+      <li>{identity.hobbies[3]}</li>
+    </ul>
+  </body>
 </html>
