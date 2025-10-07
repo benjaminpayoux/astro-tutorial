@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const pageTitle = "About me";
@@ -54,7 +54,7 @@ const goal = 3;
     </style>
   </head>
   <body>
-    <Navigation />
+    <Header />
     <h1>{pageTitle}</h1>
 
     {happy && <p>Today, I am happy</p>}
@@ -75,5 +75,6 @@ const goal = 3;
       <li>{identity.hobbies[3]}</li>
     </ul>
     <Footer />
+    <script src="../scripts/menu.js"></script>
   </body>
 </html>
