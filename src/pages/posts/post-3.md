@@ -7,7 +7,7 @@ author: "Benjamin Payoux"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "Astro performance metrics"
-tags: ["astro", "performance", "web development", "framework"]
+tags: ["astro", "performance", "web development", "framework", "blogging"]
 ---
 
 # Why Astro is Lightning Fast

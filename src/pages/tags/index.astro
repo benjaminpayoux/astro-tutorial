@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getUniqueTagsFromPosts } from "./[tag].astro";
+
+const allPosts = Object.values(
+  import.meta.glob("../posts/*.md", { eager: true })
+);
+
+const uniqueTags = getUniqueTagsFromPosts(allPosts);
+---
+
+<BaseLayout pageTitle="TagList">
+  <h1>TagList</h1>
+
+  <div class="tags">
+    {
+      uniqueTags.map((tag: any) => (
+        <p class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+</BaseLayout>
